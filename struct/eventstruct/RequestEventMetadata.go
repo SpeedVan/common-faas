@@ -1,6 +1,7 @@
 package eventstruct
 
 import (
+	"encoding/json"
 	"net/http"
 	"strings"
 
@@ -14,6 +15,16 @@ type RequestEventMetadata struct {
 	Method             string                 `json:"method"`
 	Path               string                 `json:"path"`
 	Header             http.Header            `json:"header"`
+}
+
+// FromHTTPRequestJSONBytes todo
+func FromHTTPRequestJSONBytes(bs []byte) (*RequestEventMetadata, error) {
+	result := &RequestEventMetadata{}
+	err := json.Unmarshal(bs, result)
+	if err != nil {
+		return nil, err
+	}
+	return result, nil
 }
 
 // FromHTTPRequest todo

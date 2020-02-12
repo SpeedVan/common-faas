@@ -1,6 +1,9 @@
 package eventstruct
 
-import "net/http"
+import (
+	"encoding/json"
+	"net/http"
+)
 
 // ResponseEventMetadata todo
 type ResponseEventMetadata struct {
@@ -9,4 +12,14 @@ type ResponseEventMetadata struct {
 	StatusCode     int                    `json:"statusCode"`
 	Status         string                 `json:"status"`
 	Header         http.Header            `json:"header"`
+}
+
+// FromHTTPResponseJSONBytes todo
+func FromHTTPResponseJSONBytes(bs []byte) (*ResponseEventMetadata, error) {
+	result := &ResponseEventMetadata{}
+	err := json.Unmarshal(bs, result)
+	if err != nil {
+		return nil, err
+	}
+	return result, nil
 }
