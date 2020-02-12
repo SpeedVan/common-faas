@@ -16,8 +16,8 @@ type RequestEventMetadata struct {
 	Header             http.Header            `json:"header"`
 }
 
-// FormHTTPRequest todo
-func FormHTTPRequest(r *http.Request, responseStreamName, requestEventPath string) *RequestEventMetadata {
+// FromHTTPRequest todo
+func FromHTTPRequest(r *http.Request, responseStreamName, requestEventPath string) *RequestEventMetadata {
 	header := r.Header
 	ctx := make(map[string]interface{})
 
