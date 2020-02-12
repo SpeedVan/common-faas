@@ -5,7 +5,6 @@ import (
 	"strings"
 
 	"github.com/SpeedVan/go-common-faas/constant/httpconst"
-	"github.com/SpeedVan/invoker/service"
 )
 
 // RequestEventMetadata todo
@@ -18,9 +17,8 @@ type RequestEventMetadata struct {
 }
 
 // FormHTTPRequest todo
-func FormHTTPRequest(r *http.Request, responseStreamName string) *RequestEventMetadata {
+func FormHTTPRequest(r *http.Request, responseStreamName, requestEventPath string) *RequestEventMetadata {
 	header := r.Header
-
 	ctx := make(map[string]interface{})
 
 	for k, item := range header {
@@ -34,11 +32,11 @@ func FormHTTPRequest(r *http.Request, responseStreamName string) *RequestEventMe
 		}
 	}
 
-	return &service.RequestEventMetadata{
+	return &RequestEventMetadata{
 		ResponseStreamName: responseStreamName,
 		Context:            ctx,
 		Method:             r.Method,
-		Path:               eventPath,
+		Path:               requestEventPath,
 		Header:             header,
 	}
 }
