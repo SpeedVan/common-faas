@@ -2,15 +2,15 @@ package httpconst
 
 var (
 	// HeaderPrefix todo
-	HeaderPrefix = "X-Faas-"
+	HeaderPrefix = "X-System-"
 	// TraceID todo
-	TraceID = "X-Faas-Trace-Id"
+	TraceID = "X-System-Trace-Id"
 	// RequestID todo
-	RequestID = "X-Faas-Request-Id"
+	RequestID = "X-System-Request-Id"
 	// EventID todo
-	EventID = "X-Faas-Event-Id"
+	EventID = "X-System-Event-Id"
 	// CallbackMethod todo
-	CallbackMethod = "X-Faas-Callback-Method"
+	CallbackMethod = "X-System-Callback-Method"
 	// CallbackURL todo
-	CallbackURL = "X-Faas-Callback-Url"
+	CallbackURL = "X-System-Callback-Url"
 )
