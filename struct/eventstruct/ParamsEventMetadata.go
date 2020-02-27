@@ -9,7 +9,7 @@ import (
 )
 
 // ParamEventMetadata todo
-type ParamEventMetadata struct {
+type ParamsEventMetadata struct {
 	Context map[string]interface{} `json:"context"`
 	Method  string                 `json:"method"`
 	Path    string                 `json:"path"`
@@ -17,8 +17,8 @@ type ParamEventMetadata struct {
 }
 
 // FromHTTPRequestJSONBytes todo
-func FromHTTPRequestJSONBytes(bs []byte) (*ParamEventMetadata, error) {
-	result := &ParamEventMetadata{}
+func FromHTTPRequestJSONBytes(bs []byte) (*ParamsEventMetadata, error) {
+	result := &ParamsEventMetadata{}
 	err := json.Unmarshal(bs, result)
 	if err != nil {
 		return nil, err
@@ -27,7 +27,7 @@ func FromHTTPRequestJSONBytes(bs []byte) (*ParamEventMetadata, error) {
 }
 
 // FromHTTPRequest todo
-func FromHTTPRequest(r *http.Request, requestEventPath string) *ParamEventMetadata {
+func FromHTTPRequest(r *http.Request, requestEventPath string) *ParamsEventMetadata {
 	header := r.Header
 	ctx := make(map[string]interface{})
 
@@ -42,7 +42,7 @@ func FromHTTPRequest(r *http.Request, requestEventPath string) *ParamEventMetada
 		}
 	}
 
-	return &ParamEventMetadata{
+	return &ParamsEventMetadata{
 		Context: ctx,
 		Method:  r.Method,
 		Path:    requestEventPath,
