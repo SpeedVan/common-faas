@@ -8,7 +8,7 @@ import (
 	"github.com/SpeedVan/go-common-faas/constant/httpconst"
 )
 
-// ParamEventMetadata todo
+// ParamsEventMetadata todo
 type ParamsEventMetadata struct {
 	Context map[string]interface{} `json:"context"`
 	Method  string                 `json:"method"`
