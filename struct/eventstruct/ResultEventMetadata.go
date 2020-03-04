@@ -7,11 +7,12 @@ import (
 
 // ResultEventMetadata todo
 type ResultEventMetadata struct {
-	Context       map[string]interface{} `json:"context"`
-	ParamsEventID string                 `json:"paramsEventID"`
-	StatusCode    int                    `json:"statusCode"`
-	Status        string                 `json:"status"`
-	Header        http.Header            `json:"header"`
+	Context              map[string]interface{} `json:"context"`
+	ParamsEventID        string                 `json:"paramsEventID"`
+	ParamsEventTimeValue int64                  `json:"paramsEventTimeValue"`
+	StatusCode           int                    `json:"statusCode"`
+	Status               string                 `json:"status"`
+	Header               http.Header            `json:"header"`
 }
 
 // FromHTTPResponseJSONBytes todo
